@@ -1,10 +1,12 @@
 # Define your functions
 def coffee_bot():
-  print("Welcome to the cafe!")
+  print("Welcome to the World's Best Coffee!")
 
   size = get_size()
   drink_type = get_drink_type()
+  get_coffee_temp()
   get_cup_type()
+  get_extra_order()
   
   print('Alright, that\'s a {} {}!'.format(size, drink_type))
   name = input('Can I get your name please? \n>')
@@ -53,6 +55,16 @@ def order_latte():
     print_message()
     return order_latte() 
 
+def get_coffee_temp():
+   res = input("Hot or iced? \n[a] Hot \n[b] Iced \n> ") 
+   if res == "a":
+     return "Hot"
+   elif res == "b":
+     return "Iced"
+   else:
+     print_message()
+     return get_coffee_temp()    
+
 def get_cup_type():
   res = input("Would you like a reusuable cup or a plastic one? \n[a] Reusuable (+ $1.50) \n[b] Plastic (free) \n> ")     
   if res == "a":
@@ -62,9 +74,24 @@ def get_cup_type():
   else:
     print_message()
     return get_cup_type()
+
+def get_extra_order():
+  res = input("Would you like something to go along with your beverage? \n[a] Additional drink \n[b] A snack \n[c] No, I'm good \n> ")
+  if res == "a":
+    return coffee_bot()
+  elif res == "b":
+    return 
+  elif res == "c":
+    return 
+  else:
+    print_message()
+    return get_extra_order()  
+    
   
 
-    
+
+
+   
 
 # Call coffee_bot()!
 coffee_bot()
